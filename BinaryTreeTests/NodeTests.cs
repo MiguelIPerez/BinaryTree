@@ -88,7 +88,7 @@ namespace BinaryTreeTests
         public void Exist_GivenADataThatNotExist_ShouldReturnFalse()
         {
             IList<int> existingList = new List<int> { 36, 48, 47, 9, 16, 11, 2, 8, 33, 3, 18, 34, 49, 27, 19, 1, 41, 28, 5, 20, 39, 32, 7, 42, 37, 10, 31, 29, 30, 24, 15, 23, 17, 54 };
-            var rootNode = new Tree().CreateTreeStructure(existingList);
+            var rootNode = new TreeBuilder().CreateTreeStructure(existingList);
 
             Assert.IsFalse(rootNode.Exist(45));
             Assert.IsFalse(rootNode.Exist(21));
@@ -101,7 +101,7 @@ namespace BinaryTreeTests
         public void Exist_GivenADataThatExist_ShouldReturnTrue()
         {
             IList<int> existingList = new List<int> { 36, 48, 47, 9, 16, 11, 2, 8, 33, 3, 18, 34, 49, 27, 19, 1, 41, 28, 5, 20, 39, 32, 7, 42, 37, 10, 31, 29, 30, 24, 15, 23, 17, 54 };
-            var rootNode = new Tree().CreateTreeStructure(existingList);
+            var rootNode = new TreeBuilder().CreateTreeStructure(existingList);
             Assert.IsTrue(rootNode.Exist(27));
             Assert.IsTrue(rootNode.Exist(31));
             Assert.IsTrue(rootNode.Exist(24));
@@ -113,7 +113,7 @@ namespace BinaryTreeTests
         public void GetCommonAncestor_GivenOneNumberDoesNotExist_ShouldReturnTheAncestorIfTheyWouldBeInsertedJustNow()
         {
             IList<int> existingList = new List<int> { 36, 48, 47, 9, 16, 11, 2, 8, 33, 3, 18, 34, 49, 27, 19, 1, 41, 28, 5, 20, 39, 32, 7, 42, 37, 10, 31, 29, 30, 24, 15, 23, 17, 54 };
-            var rootNode = new Tree().CreateTreeStructure(existingList);
+            var rootNode = new TreeBuilder().CreateTreeStructure(existingList);
 
             var commonAncestor = rootNode.GetCommonAncestor(21, 6);
 
@@ -125,7 +125,7 @@ namespace BinaryTreeTests
         public void GetCommonAncestor_GivenTwoExistingNumberInTheTree_ShouldReturnTheCommonAncestor()
         {
             IList<int> existingList = new List<int> { 36, 48, 47, 9, 16, 11, 2, 8, 33, 3, 18, 34, 49, 27, 19, 1, 41, 28, 5, 20, 39, 32, 7, 42, 37, 10, 31, 29, 30, 24, 15, 23, 17, 54 };
-            var rootNode = new Tree().CreateTreeStructure(existingList);
+            var rootNode = new TreeBuilder().CreateTreeStructure(existingList);
 
             var commonAncestor = rootNode.GetCommonAncestor(10, 29);
 
@@ -138,7 +138,7 @@ namespace BinaryTreeTests
         {
             IList<int> existingList = new List<int> { 36, 48, 47, 9, 16, 11, 2, 8, 33, 3, 18, 34, 49, 27, 19, 1, 41, 28, 5, 20, 39, 32, 7, 42, 37, 10, 31, 29, 30, 24, 15, 23, 17, 54 };
             
-            var rootNode = new Tree().CreateTreeStructure(existingList);
+            var rootNode = new TreeBuilder().CreateTreeStructure(existingList);
 
             var commonAncestor = rootNode.GetCommonAncestor(33, 32);
 
@@ -151,7 +151,7 @@ namespace BinaryTreeTests
         {
             IList<int> existingList = new List<int> { 36, 48, 47, 9, 16, 11, 2, 8, 33, 3, 18, 34, 49, 27, 19, 1, 41, 28, 5, 20, 39, 32, 7, 42, 37, 10, 31, 29, 30, 24, 15, 23, 17, 54 };
 
-            var rootNode = new Tree().CreateTreeStructure(existingList);
+            var rootNode = new TreeBuilder().CreateTreeStructure(existingList);
 
             var commonAncestor = rootNode.GetCommonAncestor(27, 27);
 
@@ -164,7 +164,7 @@ namespace BinaryTreeTests
         {
             IList<int> existingList = new List<int> { 36, 48, 47, 9, 16, 11, 2, 8, 33, 3, 18, 34, 49, 27, 19, 1, 41, 28, 5, 20, 39, 32, 7, 42, 37, 10, 31, 29, 30, 24, 15, 23, 17, 54 };
 
-            var rootNode = new Tree().CreateTreeStructure(existingList);
+            var rootNode = new TreeBuilder().CreateTreeStructure(existingList);
 
             var commonAncestor = rootNode.GetCommonAncestor(36, 27);
 

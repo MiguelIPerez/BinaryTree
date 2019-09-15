@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using BinaryTreeDomain.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BinaryTreeDomain
 {
-    public class Tree
+    public class TreeBuilder : ITreeBuilder
     {
-        public Node CreateTreeStructure(IList<int> nodes)
+        public INode CreateTreeStructure(IList<int> nodes)
         {
-            Node treeRoot = null;
+            INode treeRoot = null;
             if (nodes!= null && nodes.Any())
             {
                 treeRoot = this.CreateTreeStructure(nodes.First());
@@ -21,7 +22,7 @@ namespace BinaryTreeDomain
             return treeRoot;
         }
 
-        public Node InsertNode(Node root, IList<int> dataList)
+        public INode InsertNode(INode root, IList<int> dataList)
         {
             if (root == null)
             {
@@ -35,7 +36,7 @@ namespace BinaryTreeDomain
             return root;
         }
 
-        public Node InsertNode(Node root, int data)
+        public INode InsertNode(INode root, int data)
         {
             if (root == null)
             {
@@ -50,12 +51,12 @@ namespace BinaryTreeDomain
             return root;
         }
 
-        public Node CreateTreeStructure(int data = 0)
+        public INode CreateTreeStructure(int data = 0)
         {
             return new Node(data);
         }
 
-        public Node GetClosestCommonAncestor(Node tree, int firstData, int secondData)
+        public INode GetClosestCommonAncestor(INode tree, int firstData, int secondData)
         {
             if (tree != null && tree.Exist(firstData) && tree.Exist(secondData))
             {

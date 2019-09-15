@@ -1,10 +1,12 @@
-﻿namespace BinaryTreeDomain
-{
-    public class Node
-    {
-        public Node LeftChild { get; set; }
+﻿using BinaryTreeDomain.Interfaces;
 
-        public Node RightChild { get; set; }
+namespace BinaryTreeDomain
+{
+    public class Node : INode
+    {
+        public INode LeftChild { get; set; }
+
+        public INode RightChild { get; set; }
 
         public int Data { get; private set;  }
 
@@ -13,7 +15,7 @@
             this.Data = data;
         }
 
-        public Node GetCommonAncestor(int firstData, int secondData)
+        public INode GetCommonAncestor(int firstData, int secondData)
         {
             if ((this.IsRoot(firstData, secondData)) ||
                  this.DoesChildHaveDifferentOrientation(firstData, secondData) ||

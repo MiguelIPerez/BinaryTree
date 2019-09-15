@@ -7,14 +7,14 @@ using System.Linq;
 namespace BinaryTreeTests
 {
     [TestClass]
-    public class TreeTests
+    public class TreeBuilderTests
     {
-        public Tree Tree { get; set; }
+        public TreeBuilder Tree { get; set; }
 
         [TestInitialize]
         public void SetUp()
         {
-            Tree = new Tree();
+            Tree = new TreeBuilder();
         }
 
         [TestCleanup]
