@@ -40,7 +40,7 @@ namespace BinaryTreeAPI.Controller
 
         [HttpPost]
         [Route("LowestCommonAncestor")]
-        public async Task<ActionResult<INode>> GetLowestCommonAncestor(TreeStructureRequest dataRequest)
+        public async Task<ActionResult<INode>> GetLowestCommonAncestorAsync(TreeStructureRequest dataRequest)
         {
             if (dataRequest == null || dataRequest.Node == null)
             {
