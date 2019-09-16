@@ -6,9 +6,9 @@ namespace BinaryTreeDomain.Interfaces
 {
     public interface INode
     {
-        INode LeftChild { get; set; }
+        Node LeftChild { get; set; }
 
-        INode RightChild { get; set; }
+        Node RightChild { get; set; }
 
         INode GetCommonAncestor(int firstData, int secondData);
 

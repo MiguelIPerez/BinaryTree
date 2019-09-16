@@ -1,14 +1,15 @@
 ﻿using BinaryTreeDomain.Interfaces;
+using System.Threading.Tasks;
 
 namespace BinaryTreeDomain
 {
     public class Node : INode
     {
-        public INode LeftChild { get; set; }
+        public int Data { get; private set; }
 
-        public INode RightChild { get; set; }
+        public Node LeftChild { get; set; }
 
-        public int Data { get; private set;  }
+        public Node RightChild { get; set; }
 
         public Node(int data)
         {
