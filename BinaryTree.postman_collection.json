@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "0181767a-01c5-4de3-97c3-261cbabc3a12",
+		"name": "BinaryTree",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateBynaryTree_With_MultipleValue",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DataList\": [\r\n        67,\r\n        39,\r\n        76,\r\n        28,\r\n        44,\r\n        74,\r\n        85,\r\n        29,\r\n        83,\r\n        87\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44336/v1/CreateBinaryTreeStructure",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44336",
+					"path": [
+						"v1",
+						"CreateBinaryTreeStructure"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LowestCommonAncestor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"FirstDescendant\":28,\n\t\"SecondDescendant\":87,\n\t\"Node\":{\n    \"data\": 67,\n    \"leftChild\": {\n        \"data\": 39,\n        \"leftChild\": {\n            \"data\": 28,\n            \"leftChild\": null,\n            \"rightChild\": {\n                \"data\": 29,\n                \"leftChild\": null,\n                \"rightChild\": null\n            }\n        },\n        \"rightChild\": {\n            \"data\": 44,\n            \"leftChild\": null,\n            \"rightChild\": null\n        }\n    },\n    \"rightChild\": {\n        \"data\": 76,\n        \"leftChild\": {\n            \"data\": 74,\n            \"leftChild\": null,\n            \"rightChild\": null\n        },\n        \"rightChild\": {\n            \"data\": 85,\n            \"leftChild\": {\n                \"data\": 83,\n                \"leftChild\": null,\n                \"rightChild\": null\n            },\n            \"rightChild\": {\n                \"data\": 87,\n                \"leftChild\": null,\n                \"rightChild\": null\n            }\n        }\n    }\n}\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44336/v1/LowestCommonAncestor",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44336",
+					"path": [
+						"v1",
+						"LowestCommonAncestor"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
