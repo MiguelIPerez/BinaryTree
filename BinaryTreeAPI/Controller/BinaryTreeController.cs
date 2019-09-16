@@ -22,13 +22,13 @@ namespace BinaryTreeAPI.Controller
 
         [HttpPost]
         [Route("CreateBinaryTreeStructure")]
-        public ActionResult<INode> CreateBinaryTree(TreeStructureRequest dataRequest)
+        public async Task<ActionResult<INode>> CreateBinaryTreeAsync(TreeStructureRequest dataRequest)
         {
             if (dataRequest == null || dataRequest.DataList == null || !dataRequest.DataList.Any())
             {
                 return BadRequest("The request has invalid data or does not have any data at all");
             }
-            var rootNode = this._treeBuilder.CreateTreeStructure( dataRequest.DataList);
+            var rootNode = await this._treeBuilder.CreateTreeStructureAsync( dataRequest.DataList);
 
             if (rootNode == null)
             {
@@ -40,13 +40,13 @@ namespace BinaryTreeAPI.Controller
 
         [HttpPost]
         [Route("LowestCommonAncestor")]
-        public ActionResult<INode> GetLowestCommonAncestor(TreeStructureRequest dataRequest)
+        public async Task<ActionResult<INode>> GetLowestCommonAncestor(TreeStructureRequest dataRequest)
         {
             if (dataRequest == null || dataRequest.Node == null)
             {
                 return BadRequest("The request has invalid data or does not have any data at all");
             }
-            var rootNode = this._treeBuilder.GetClosestCommonAncestor(dataRequest.Node, dataRequest.FirstDescendant, dataRequest.SecondDescendant);
+            var rootNode = await this._treeBuilder.GetClosestCommonAncestorAsync(dataRequest.Node, dataRequest.FirstDescendant, dataRequest.SecondDescendant);
 
             if (rootNode == null)
             {

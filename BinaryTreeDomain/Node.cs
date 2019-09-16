@@ -16,7 +16,7 @@ namespace BinaryTreeDomain
             this.Data = data;
         }
 
-        public INode GetCommonAncestor(int firstData, int secondData)
+        public async Task<INode> GetCommonAncestorAsync(int firstData, int secondData)
         {
             if ((this.IsRoot(firstData, secondData)) ||
                  this.DoesChildHaveDifferentOrientation(firstData, secondData) ||
@@ -26,7 +26,7 @@ namespace BinaryTreeDomain
             }
             
             var selectedChild = this.GetChildOrientation(firstData) == ChildOrientation.Left ? this.LeftChild : this.RightChild;
-            return selectedChild.GetCommonAncestor(firstData, secondData);
+            return await selectedChild.GetCommonAncestorAsync(firstData, secondData);
         }
 
         internal bool IsChildDataEqualToParameters(int firstData, int secondData)
@@ -48,7 +48,7 @@ namespace BinaryTreeDomain
             return (firstData == this.Data || secondData == this.Data);
         }
 
-        public bool InsertNode(int nodeValue)
+        public async Task<bool> InsertNodeAsync(int nodeValue)
         {
             var wasNodeAllocated = false;
 
@@ -63,7 +63,7 @@ namespace BinaryTreeDomain
                     }
                     else
                     {
-                        wasNodeAllocated = this.RightChild.InsertNode(nodeValue);
+                        wasNodeAllocated = await this.RightChild.InsertNodeAsync(nodeValue);
                     }
                 }
                 else
@@ -75,7 +75,7 @@ namespace BinaryTreeDomain
                     }
                     else
                     {
-                        wasNodeAllocated = this.LeftChild.InsertNode(nodeValue);
+                        wasNodeAllocated = await this.LeftChild.InsertNodeAsync(nodeValue);
                     }
                 }
             }
@@ -93,7 +93,7 @@ namespace BinaryTreeDomain
             return data > this.Data ? ChildOrientation.Right : ChildOrientation.Left;
         }
 
-        public bool Exist(int data)
+        public async Task<bool> ExistAsync(int data)
         {
             if (this.Data == data)
             {
@@ -101,11 +101,11 @@ namespace BinaryTreeDomain
             }
             else if (data > this.Data && this.RightChild != null)
             {
-                return this.RightChild.Exist(data);
+                return await this.RightChild.ExistAsync(data);
             }
             else if (data < this.Data && this.LeftChild != null)
             {
-                return this.LeftChild.Exist(data);
+                return await this.LeftChild.ExistAsync(data);
             }
             else
             {

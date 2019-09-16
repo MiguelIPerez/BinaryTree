@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BinaryTreeDomain.Interfaces
 {
@@ -10,12 +11,12 @@ namespace BinaryTreeDomain.Interfaces
 
         Node RightChild { get; set; }
 
-        INode GetCommonAncestor(int firstData, int secondData);
+        Task<INode> GetCommonAncestorAsync(int firstData, int secondData);
 
         int Data { get; }
 
-        bool InsertNode(int nodeValue);
+        Task<bool> InsertNodeAsync(int nodeValue);
 
-        bool Exist(int data);
+        Task<bool> ExistAsync(int data);
     }
 }
