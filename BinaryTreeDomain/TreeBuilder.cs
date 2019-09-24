@@ -24,20 +24,6 @@ namespace BinaryTreeDomain
             return treeRoot;
         }
 
-        //public INode InsertNode(INode root, IList<int> dataList)
-        //{
-        //    if (root == null)
-        //    {
-        //        return this.CreateTreeStructure(dataList);
-        //    }
-        //    foreach (var data in dataList)
-        //    {
-        //        this.InsertNode(root, data);
-        //    }
-
-        //    return root;
-        //}
-
         public async Task<INode> InsertNodeAsync(INode root, int data)
         {
             if (root == null)

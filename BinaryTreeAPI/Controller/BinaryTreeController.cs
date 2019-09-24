@@ -17,7 +17,7 @@ namespace BinaryTreeAPI.Controller
 
         public BinaryTreeController(ITreeBuilder treeBuilder)
         {
-            this._treeBuilder = treeBuilder;
+            this._treeBuilder = treeBuilder ?? throw new ArgumentNullException(nameof(treeBuilder));
         }
 
         [HttpPost]
