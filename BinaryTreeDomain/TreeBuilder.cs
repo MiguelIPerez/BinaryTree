@@ -11,13 +11,20 @@ namespace BinaryTreeDomain
         public async Task<INode> CreateTreeStructureAsync(IList<int> nodes)
         {
             INode treeRoot = null;
-            if (nodes!= null && nodes.Any())
+            if (nodes == null && !nodes.Any())
             {
-                treeRoot = this.CreateTreeStructure(nodes.First());
-                nodes.RemoveAt(default(int));
-                foreach (var nodeItem in nodes)
+                return treeRoot;
+            }
+
+            foreach (var itemData in nodes)
+            {
+                if (treeRoot == null)
                 {
-                    await this.InsertNodeAsync(treeRoot, nodeItem);
+                    treeRoot = this.CreateTreeStructure(itemData);
+                }
+                else
+                {
+                    await this.InsertNodeAsync(treeRoot, itemData);
                 }
             }
 
